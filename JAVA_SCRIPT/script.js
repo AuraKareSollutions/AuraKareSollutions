@@ -353,7 +353,10 @@ if (serviceFeature && serviceConnectButton) {
   mobileFooterButton.href = 'get-in-touch.html';
   mobileFooterButton.textContent = 'Connect With Us';
   if (siteFooter?.parentElement) {
-    siteFooter.parentElement.insertBefore(mobileFooterButton, siteFooter);
+    const mobileFooterButtonWrap = document.createElement('div');
+    mobileFooterButtonWrap.className = 'service-footer-connect-wrap';
+    mobileFooterButtonWrap.append(mobileFooterButton);
+    siteFooter.parentElement.insertBefore(mobileFooterButtonWrap, siteFooter);
   } else {
     serviceFeature.append(mobileFooterButton);
   }
