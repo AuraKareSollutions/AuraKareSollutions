@@ -345,8 +345,13 @@ const serviceConnectButton = document.querySelector(
 
 const serviceFeature = document.querySelector('.service-feature');
 if (serviceFeature && serviceConnectButton) {
-  serviceConnectButton.classList.remove('service-connect-original');
-  serviceFeature.prepend(serviceConnectButton);
+  serviceConnectButton.classList.add('service-connect-original');
+  const mobileFooterButton = serviceConnectButton.cloneNode(true);
+  mobileFooterButton.classList.remove('service-connect-original');
+  mobileFooterButton.classList.add('service-footer-connect-button');
+  mobileFooterButton.href = 'get-in-touch.html';
+  mobileFooterButton.textContent = 'Connect With Us';
+  serviceFeature.append(mobileFooterButton);
 }
 
 
