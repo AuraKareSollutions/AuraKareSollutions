@@ -339,6 +339,21 @@ if (bpoFeature) {
   }
 }
 
+const serviceHeroContent = document.querySelector('.services-hero-content');
+const serviceConnectButton = document.querySelector(
+  '.document-scanning-connect-button, .service-follow-up-button, .case-studies-button'
+);
+
+if (serviceHeroContent && serviceConnectButton) {
+  serviceConnectButton.classList.add('service-connect-original');
+  const mobileHeroButton = serviceConnectButton.cloneNode(true);
+  mobileHeroButton.classList.remove('service-connect-original');
+  mobileHeroButton.classList.add('service-connect-hero-button');
+  mobileHeroButton.href = 'get-in-touch.html';
+  mobileHeroButton.textContent = 'Connect With Us';
+  serviceHeroContent.insertBefore(mobileHeroButton, serviceHeroContent.querySelector('h1'));
+}
+
 
 menuToggle.addEventListener('click', () => {
   const isOpen = primaryNavigation.classList.toggle('is-open');
