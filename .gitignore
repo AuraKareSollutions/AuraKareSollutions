@@ -1,0 +1,10 @@
+# Local secrets and environment configuration
+.env
+.env.*
+!.env.example
+supabase-config.js
+node_modules/
+
+# Local dashboard exports and downloaded assets
+New _ Edge Functions _ AuraKareSollutions_ ahmedarbaz272-maker's Org _ Supabase*
+New _ Edge Functions _ AuraKareSollutions _ ahmedarbaz272-maker's Org _ Supabase*
