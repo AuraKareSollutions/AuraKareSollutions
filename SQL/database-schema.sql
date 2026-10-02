@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS submissions (
   city VARCHAR(255) NULL,
   message TEXT NULL,
   country_region VARCHAR(255) NULL,
+  support_type VARCHAR(64) NULL,
   payload_json JSON NOT NULL,
   INDEX idx_submissions_submitted_at (submitted_at),
   INDEX idx_submissions_email (email),

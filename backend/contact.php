@@ -47,7 +47,7 @@ if (strlen(json_encode($formPayload, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLA
 $allowedFields = [
     'name', 'email', 'news-updates', 'phone', 'work-volume', 'requirements',
     'work-frequency', 'start-date', 'outsourcing-stage', 'position', 'state',
-    'city', 'message', 'country-region'
+    'city', 'message', 'country-region', 'support-type'
 ];
 foreach (array_keys($formPayload) as $field) {
     if (!in_array((string)$field, $allowedFields, true)) {
@@ -69,6 +69,9 @@ foreach (['phone', 'work-volume', 'position', 'state', 'city', 'country-region']
     if (strlen((string)($formPayload[$field] ?? '')) > 255) {
         respond(422, ['error' => 'One of the form fields is too long.']);
     }
+}
+if (($formPayload['support-type'] ?? null) !== null && !in_array($formPayload['support-type'], ['human-response', 'enterprise-support', 'global-operations'], true)) {
+    respond(422, ['error' => 'Invalid support type.']);
 }
 
 try {
@@ -125,8 +128,8 @@ try {
         'INSERT INTO submissions (
             inquiry_type, name, email, news_updates, phone, work_volume,
             requirements, work_frequency, start_date, outsourcing_stage,
-            position, state, city, message, country_region, payload_json
-         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+            position, state, city, message, country_region, support_type, payload_json
+         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
     );
     $jsonPayload = json_encode($formPayload, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR);
     $insert->execute([
@@ -145,6 +148,7 @@ try {
         nullableString($formPayload['city'] ?? null),
         nullableString($formPayload['message'] ?? null),
         nullableString($formPayload['country-region'] ?? null),
+        nullableString($formPayload['support-type'] ?? null),
         $jsonPayload,
     ]);
     $pdo->commit();

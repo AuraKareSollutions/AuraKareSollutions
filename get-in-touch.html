@@ -362,6 +362,7 @@
         const payload = Object.fromEntries(new FormData(this).entries());
 
         payload['news-updates'] = this.elements['news-updates']?.checked || false;
+        payload['support-type'] = document.querySelector('input[name="support-type"]:checked')?.value || null;
         submitButton.disabled = true;
 
         try {
@@ -398,5 +399,4 @@
   </script>
 </body>
 </html>
-
 

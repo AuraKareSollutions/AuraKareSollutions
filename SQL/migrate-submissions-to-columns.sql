@@ -12,7 +12,8 @@ ALTER TABLE submissions
   ADD COLUMN IF NOT EXISTS state VARCHAR(255) NULL,
   ADD COLUMN IF NOT EXISTS city VARCHAR(255) NULL,
   ADD COLUMN IF NOT EXISTS message TEXT NULL,
-  ADD COLUMN IF NOT EXISTS country_region VARCHAR(255) NULL;
+  ADD COLUMN IF NOT EXISTS country_region VARCHAR(255) NULL,
+  ADD COLUMN IF NOT EXISTS support_type VARCHAR(64) NULL;
 
 UPDATE submissions
 SET
@@ -27,6 +28,7 @@ SET
   state = NULLIF(JSON_UNQUOTE(JSON_EXTRACT(payload_json, '$.state')), ''),
   city = NULLIF(JSON_UNQUOTE(JSON_EXTRACT(payload_json, '$.city')), ''),
   message = NULLIF(JSON_UNQUOTE(JSON_EXTRACT(payload_json, '$.message')), ''),
-  country_region = NULLIF(JSON_UNQUOTE(JSON_EXTRACT(payload_json, '$."country-region"')), '');
+  country_region = NULLIF(JSON_UNQUOTE(JSON_EXTRACT(payload_json, '$."country-region"')), ''),
+  support_type = NULLIF(JSON_UNQUOTE(JSON_EXTRACT(payload_json, '$."support-type"')), '');
 
 CREATE INDEX IF NOT EXISTS idx_submissions_inquiry_type ON submissions (inquiry_type);
