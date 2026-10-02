@@ -5879,3 +5879,35 @@ svg {
     order: 3;
   }
 }
+
+
+/* Keep service-page Connect With Us actions above the mobile service headings. */
+@media (max-width: 560px) {
+  body:has(#document-scanning) .document-scanning-right {
+    display: contents;
+  }
+
+  body:has(#document-scanning) .document-scanning-connect-button {
+    order: -1;
+    margin: 0 0 20px;
+  }
+
+  body:has(#document-scanning) .document-scanning-right .service-video-box {
+    order: 2;
+  }
+
+  body:has(#document-scanning) .document-scanning-more-copy {
+    order: 3;
+  }
+
+  body:has(#legacy-data-transformation) .service-follow-up-button,
+  body:has(#ai-ready-processing) .service-follow-up-button {
+    order: -1 !important;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  body:has(#bpo-workflows) .service-cta-banner {
+    order: 0 !important;
+  }
+}
