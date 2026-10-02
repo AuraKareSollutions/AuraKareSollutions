@@ -1,0 +1,16 @@
+{
+  "name": "AuraKare Sollutions",
+  "short_name": "AuraKare",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1769d2",
+  "icons": [
+    {
+      "src": "/ak-favicon-v3.png?v=3",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

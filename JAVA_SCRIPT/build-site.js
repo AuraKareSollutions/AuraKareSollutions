@@ -19,7 +19,8 @@ const publicFiles = [
     'sectors.html',
     'style.css',
     'sitemap.xml',
-    'robots.txt'
+    'robots.txt',
+    'site.webmanifest'
   ].map((file) => [file, file]),
   ['JAVA_SCRIPT/sectors-galaxy.js', 'sectors-galaxy.js'],
   ['JAVA_SCRIPT/script.js', 'script.js'],
