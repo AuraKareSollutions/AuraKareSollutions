@@ -5821,3 +5821,25 @@ svg {
 .contact-submit {
   background: #1955a4;
 }
+
+
+/* Widen the contact choices and workflow panel while preserving the outer page margins. */
+@media (min-width: 981px) {
+  .contact-workspace {
+    grid-template-columns: minmax(250px, 0.95fr) minmax(470px, 1.38fr) minmax(300px, 0.9fr);
+  }
+
+  .contact-intent,
+  .contact-intent:first-of-type,
+  .contact-intent:nth-of-type(2),
+  .contact-intent:nth-of-type(3) {
+    min-width: 0;
+    width: 100% !important;
+  }
+
+  .contact-next {
+    max-width: calc(100% - 20px);
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+}
