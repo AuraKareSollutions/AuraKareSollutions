@@ -5323,3 +5323,13 @@ svg {
   width: calc(100% - 20px);
   margin-left: 10px;
 }
+
+/* Keep the original tunnel video visible behind the next-steps card. */
+.contact-video-background {
+  display: block;
+}
+
+.contact-next {
+  align-self: center;
+  margin: 36px 14px;
+}
