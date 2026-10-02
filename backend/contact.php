@@ -122,11 +122,31 @@ try {
     }
 
     $insert = $pdo->prepare(
-        'INSERT INTO submissions (inquiry_type, name, email, payload_json)
-         VALUES (?, ?, ?, ?)'
+        'INSERT INTO submissions (
+            inquiry_type, name, email, news_updates, phone, work_volume,
+            requirements, work_frequency, start_date, outsourcing_stage,
+            position, state, city, message, country_region, payload_json
+         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
     );
     $jsonPayload = json_encode($formPayload, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR);
-    $insert->execute([$inquiryType, $name, $email, $jsonPayload]);
+    $insert->execute([
+        $inquiryType,
+        $name,
+        $email,
+        !empty($formPayload['news-updates']) ? 1 : 0,
+        nullableString($formPayload['phone'] ?? null),
+        nullableString($formPayload['work-volume'] ?? null),
+        nullableString($formPayload['requirements'] ?? null),
+        nullableString($formPayload['work-frequency'] ?? null),
+        nullableString($formPayload['start-date'] ?? null),
+        nullableString($formPayload['outsourcing-stage'] ?? null),
+        nullableString($formPayload['position'] ?? null),
+        nullableString($formPayload['state'] ?? null),
+        nullableString($formPayload['city'] ?? null),
+        nullableString($formPayload['message'] ?? null),
+        nullableString($formPayload['country-region'] ?? null),
+        $jsonPayload,
+    ]);
     $pdo->commit();
 
     sendNotification($inquiryType, $name, $email, $formPayload);
@@ -163,6 +183,12 @@ function sendNotification(string $inquiryType, string $name, string $email, arra
         'Content-Type: text/plain; charset=UTF-8',
     ];
     @mail(MAIL_TO, $subject, implode("\n", $lines), implode("\r\n", $headers));
+}
+
+function nullableString(mixed $value): ?string
+{
+    $value = is_scalar($value) ? trim((string)$value) : '';
+    return $value === '' ? null : $value;
 }
 
 function respond(int $status, array $body): never
