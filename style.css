@@ -5843,3 +5843,39 @@ svg {
     margin-left: 10px;
   }
 }
+
+
+/* Mobile service headings: keep the page title before every H3 section heading. */
+@media (max-width: 560px) {
+  body:has(.service-feature) .service-feature {
+    display: flex;
+    flex-direction: column;
+  }
+
+  body:has(.service-feature) .service-feature .service-item,
+  body:has(#legacy-data-transformation) .service-feature .service-item,
+  body:has(#ai-ready-processing) .service-feature .service-item,
+  body:has(#bpo-workflows) .service-feature .service-item {
+    display: flex !important;
+    flex-direction: column;
+    order: 1 !important;
+  }
+
+  body:has(.service-feature) .service-feature .service-item > h2 {
+    position: static;
+    order: 0;
+    margin: 0 0 18px;
+  }
+
+  body:has(.service-feature) .service-feature .service-item > .service-title-subtitle {
+    order: 1;
+  }
+
+  body:has(.service-feature) .service-feature .service-item > .service-intro-subtitle {
+    order: 2;
+  }
+
+  body:has(.service-feature) .service-feature .service-item > .sqs-block-content {
+    order: 3;
+  }
+}
