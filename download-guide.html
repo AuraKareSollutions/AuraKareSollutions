@@ -208,7 +208,6 @@
   </footer>
 
   <script src="script.js?v=download-guide-2026-09-29"></script>
-  <script src="supabase-config.js"></script>
   <script>
     const guideForm = document.getElementById('download-guide-form');
 
@@ -227,14 +226,6 @@
           return;
         }
 
-        const supabaseUrl = window.supabaseConfig?.url;
-        const supabaseAnonKey = window.supabaseConfig?.anonKey;
-
-        if (!supabaseUrl || !supabaseAnonKey) {
-          window.alert('The download service is temporarily unavailable. Please try again later.');
-          return;
-        }
-
         submitButton.disabled = true;
         submitButton.textContent = 'Saving...';
 
@@ -245,14 +236,9 @@
             'news-updates': false
           };
 
-          const response = await fetch(`${supabaseUrl}/rest/v1/submissions`, {
+          const response = await fetch('/api/contact.php', {
             method: 'POST',
-            headers: {
-              apikey: supabaseAnonKey,
-              Authorization: `Bearer ${supabaseAnonKey}`,
-              'Content-Type': 'application/json',
-              Prefer: 'return=minimal'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               inquiry_type: 'general-inquiries',
               name: payload.name,

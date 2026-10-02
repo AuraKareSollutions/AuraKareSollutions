@@ -351,11 +351,7 @@
     </div>
   </footer>
   <script src="script.js?v=animation-2"></script>
-  <script src="supabase-config.js"></script>
   <script>
-    const supabaseUrl = window.supabaseConfig.url;
-    const supabaseAnonKey = window.supabaseConfig.anonKey;
-
     document.querySelectorAll('.contact-form').forEach(function (form) {
       form.addEventListener('submit', async function (event) {
         event.preventDefault();
@@ -369,14 +365,9 @@
         submitButton.disabled = true;
 
         try {
-          const response = await fetch(`${supabaseUrl}/rest/v1/submissions`, {
+          const response = await fetch('/api/contact.php', {
             method: 'POST',
-            headers: {
-              apikey: supabaseAnonKey,
-              Authorization: `Bearer ${supabaseAnonKey}`,
-              'Content-Type': 'application/json',
-              Prefer: 'return=minimal'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               inquiry_type: inquiryType,
               name: payload.name || null,
@@ -407,6 +398,5 @@
   </script>
 </body>
 </html>
-
 
 

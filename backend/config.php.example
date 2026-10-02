@@ -1,0 +1,9 @@
+<?php
+declare(strict_types=1);
+
+const DB_HOST = 'localhost';
+const DB_NAME = 'REPLACE_WITH_MILESWEB_DATABASE_NAME';
+const DB_USER = 'REPLACE_WITH_MILESWEB_DATABASE_USER';
+const DB_PASSWORD = 'REPLACE_WITH_MILESWEB_DATABASE_PASSWORD';
+const MAIL_TO = 'hello@aurakaresollutions.com';
+const MAIL_FROM = 'noreply@aurakaresollutions.com';

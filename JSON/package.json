@@ -4,13 +4,12 @@
   "description": "Locally hosted frontend runtime libraries and fonts for the AuraKare Sollutions static site.",
   "scripts": {
     "build": "node ../JAVA_SCRIPT/build-site.js dist",
-    "test": "NODE_PATH=node_modules node --test ../API/send-guide.test.js"
+    "test": "node --check ../JAVA_SCRIPT/build-site.js"
   },
   "dependencies": {
     "@fontsource-variable/dm-sans": "5.3.0",
     "@fontsource-variable/manrope": "5.3.0",
     "@fontsource-variable/newsreader": "5.3.0",
-    "nodemailer": "^6.9.16",
     "three": "0.180.0"
   }
 }

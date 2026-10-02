@@ -31,12 +31,43 @@ jobs:
 
       - name: Build the production site from local repository files
         working-directory: JSON
-        env:
-          Supabase_Public_URL: ${{ secrets.SUPABASE_PUBLIC_URL }}
-          Supabase_Anon_Key: ${{ secrets.SUPABASE_ANON_KEY }}
         run: |
           npm ci
           npm run build
+
+      - name: Generate protected PHP backend configuration
+        env:
+          MILESWEB_DB_HOST: ${{ secrets.MILESWEB_DB_HOST }}
+          MILESWEB_DB_NAME: ${{ secrets.MILESWEB_DB_NAME }}
+          MILESWEB_DB_USER: ${{ secrets.MILESWEB_DB_USER }}
+          MILESWEB_DB_PASSWORD: ${{ secrets.MILESWEB_DB_PASSWORD }}
+        run: |
+          test -n "$MILESWEB_DB_NAME"
+          test -n "$MILESWEB_DB_USER"
+          test -n "$MILESWEB_DB_PASSWORD"
+          python3 - <<'PY'
+          import os
+          from pathlib import Path
+
+          def php_string(value):
+              return "'" + value.replace('\\', '\\\\').replace("'", "\\'") + "'"
+
+          config = """<?php
+          declare(strict_types=1);
+          const DB_HOST = %s;
+          const DB_NAME = %s;
+          const DB_USER = %s;
+          const DB_PASSWORD = %s;
+          const MAIL_TO = 'hello@aurakaresollutions.com';
+          const MAIL_FROM = 'noreply@aurakaresollutions.com';
+          """ % (
+              php_string(os.environ.get('MILESWEB_DB_HOST') or 'localhost'),
+              php_string(os.environ['MILESWEB_DB_NAME']),
+              php_string(os.environ['MILESWEB_DB_USER']),
+              php_string(os.environ['MILESWEB_DB_PASSWORD']),
+          )
+          Path('JSON/dist/api/config.php').write_text(config)
+          PY
 
       - name: Install SSH password helper
         run: sudo apt-get update -qq && sudo apt-get install -y -qq sshpass
