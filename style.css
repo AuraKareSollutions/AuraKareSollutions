@@ -5790,3 +5790,34 @@ svg {
     margin: 20px 12px;
   }
 }
+
+
+/* Final contact workspace alignment and flat-color pass. */
+.contact-intents {
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0 !important;
+  transform: none !important;
+}
+
+.contact-intent,
+.contact-intent:first-of-type,
+.contact-intent:nth-of-type(2),
+.contact-intent:nth-of-type(3) {
+  width: 100% !important;
+  max-width: 100%;
+  margin-left: 0 !important;
+  box-sizing: border-box;
+}
+
+.contact-video-background::after {
+  background: transparent;
+}
+
+.contact-next::before {
+  background: rgba(9, 49, 92, 0.18);
+}
+
+.contact-submit {
+  background: #1955a4;
+}
