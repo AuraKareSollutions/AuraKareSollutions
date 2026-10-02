@@ -1,0 +1,56 @@
+name: Deploy to MilesWeb
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      MILESWEB_HOST: 45.199.139.16
+      MILESWEB_USER: aurakare1
+      MILESWEB_PORT: 22
+      MILESWEB_PATH: /var/www/ea00f2d8-b03b-4c96-b5c5-e96b0b58ee84/public_html
+
+    steps:
+      - name: Check out this repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: JSON/package-lock.json
+
+      - name: Build the production site from local repository files
+        working-directory: JSON
+        env:
+          Supabase_Public_URL: ${{ secrets.SUPABASE_PUBLIC_URL }}
+          Supabase_Anon_Key: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          npm ci
+          npm run build
+
+      - name: Install SSH password helper
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq sshpass
+
+      - name: Trust the MilesWeb SSH host
+        run: |
+          mkdir -p "$HOME/.ssh"
+          ssh-keyscan -p "$MILESWEB_PORT" -H "$MILESWEB_HOST" >> "$HOME/.ssh/known_hosts"
+
+      - name: Deploy generated files to MilesWeb
+        env:
+          SSHPASS: ${{ secrets.MILESWEB_SSH_PASSWORD }}
+        run: |
+          sshpass -e ssh -p "$MILESWEB_PORT" "$MILESWEB_USER@$MILESWEB_HOST" \
+            "mkdir -p '$MILESWEB_PATH'"
+          sshpass -e scp -P "$MILESWEB_PORT" -r JSON/dist/. \
+            "$MILESWEB_USER@$MILESWEB_HOST:$MILESWEB_PATH/"
