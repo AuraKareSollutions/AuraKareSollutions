@@ -1,6 +1,6 @@
 {
   "version": 2,
   "framework": null,
-  "buildCommand": "node build-site.js",
+  "buildCommand": "node ../JAVA_SCRIPT/build-site.js dist",
   "outputDirectory": "dist"
 }

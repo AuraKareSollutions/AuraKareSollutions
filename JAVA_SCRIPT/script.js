@@ -1,22 +1,22 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const primaryNavigation = document.querySelector('.primary-navigation');
 const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-const githubAssetBase = 'Assets/';
+const localAssetBase = 'Assets/';
 
-const githubAssetSources = {
-  '.brand-logo source': `${githubAssetBase}Brand_Logo/Branding.mp4`,
-  '.footer-logo source': `${githubAssetBase}Brand_Logo/Branding.mp4`,
-  '.social-link[aria-label="Facebook"] img': `${githubAssetBase}Icons/icons8-facebook.gif`,
-  '.social-link[aria-label="LinkedIn"] img': `${githubAssetBase}Icons/icons8-linkedin-48.gif`,
-  '.services-hero-video source': `${githubAssetBase}HeroSection/Service Bars.mp4`,
-  '.hero-video source': `${githubAssetBase}HeroSection/Main_Hero.mp4`,
-  '.contact-video-background source': `${githubAssetBase}Contact Page/Flying_through_geometric_tunnel_1080p_20260914140440.mp4`,
-  'input[value="request-a-meeting"] + .contact-intent-logo': `${githubAssetBase}Contact%20Page/request-a-meeting-organic-alt-1.png`,
-  'input[value="careers"] + .contact-intent-logo': `${githubAssetBase}Contact%20Page/careers-icon-new.png`,
-  'input[value="general-inquiries"] + .contact-intent-logo': `${githubAssetBase}Contact%20Page/general-inquiries-icon-only.png`
+const localAssetSources = {
+  '.brand-logo source': `${localAssetBase}Brand_Logo/Branding.mp4`,
+  '.footer-logo source': `${localAssetBase}Brand_Logo/Branding.mp4`,
+  '.social-link[aria-label="Facebook"] img': `${localAssetBase}Icons/icons8-facebook.gif`,
+  '.social-link[aria-label="LinkedIn"] img': `${localAssetBase}Icons/icons8-linkedin-48.gif`,
+  '.services-hero-video source': `${localAssetBase}HeroSection/Service Bars.mp4`,
+  '.hero-video source': `${localAssetBase}HeroSection/Main_Hero.mp4`,
+  '.contact-video-background source': `${localAssetBase}Contact Page/Flying_through_geometric_tunnel_1080p_20260914140440.mp4`,
+  'input[value="request-a-meeting"] + .contact-intent-logo': `${localAssetBase}Contact%20Page/request-a-meeting-organic-alt-1.png`,
+  'input[value="careers"] + .contact-intent-logo': `${localAssetBase}Contact%20Page/careers-icon-new.png`,
+  'input[value="general-inquiries"] + .contact-intent-logo': `${localAssetBase}Contact%20Page/general-inquiries-icon-only.png`
 };
 
-Object.entries(githubAssetSources).forEach(([selector, source]) => {
+Object.entries(localAssetSources).forEach(([selector, source]) => {
   const element = document.querySelector(selector);
   if (element) {
     if (element.tagName === 'SOURCE') {
@@ -29,10 +29,10 @@ Object.entries(githubAssetSources).forEach(([selector, source]) => {
 });
 
 const serviceVideoByPage = {
-  'document-scanning.html': `${githubAssetBase}Services_VidBOX/DocScan_VidBOX.mp4`,
-  'bpo-workflows.html': `${githubAssetBase}Services_VidBOX/BPO_WorkFlow_VidBOX.mp4`,
-  'legacy-data-transformation.html': `${githubAssetBase}Services_VidBOX/Leg_Data_VidBOX.mp4`,
-  'ai-ready-processing.html': `${githubAssetBase}Services_VidBOX/AI_Ready_VidBOX.mp4`
+  'document-scanning.html': `${localAssetBase}Services_VidBOX/DocScan_VidBOX.mp4`,
+  'bpo-workflows.html': `${localAssetBase}Services_VidBOX/BPO_WorkFlow_VidBOX.mp4`,
+  'legacy-data-transformation.html': `${localAssetBase}Services_VidBOX/Leg_Data_VidBOX.mp4`,
+  'ai-ready-processing.html': `${localAssetBase}Services_VidBOX/AI_Ready_VidBOX.mp4`
 };
 
 const currentPage = window.location.pathname.split('/').pop().split('?')[0];
@@ -77,10 +77,10 @@ if (currentPage === 'bpo-workflows.html') {
 }
 
 const securityVideoByCard = {
-  '.security-media-facility': `${githubAssetBase}Data Security/Physical & Operational Controls.mp4`,
-  '.security-media-data': `${githubAssetBase}Data Security/Data Protection Controls.mp4`,
-  '.security-media-people': `${githubAssetBase}Data Security/Employee Confidentiality.mp4`,
-  '.security-media-recovery': `${githubAssetBase}Data Security/Continuity Planning_ServCard.mp4?v=continuity-servcard-20260927`
+  '.security-media-facility': `${localAssetBase}Data Security/Physical & Operational Controls.mp4`,
+  '.security-media-data': `${localAssetBase}Data Security/Data Protection Controls.mp4`,
+  '.security-media-people': `${localAssetBase}Data Security/Employee Confidentiality.mp4`,
+  '.security-media-recovery': `${localAssetBase}Data Security/Continuity Planning_ServCard.mp4?v=continuity-servcard-20260927`
 };
 
 if (currentPage === 'data-security.html') {

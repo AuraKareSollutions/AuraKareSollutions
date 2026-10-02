@@ -3,8 +3,8 @@
   "private": true,
   "description": "Locally hosted frontend runtime libraries and fonts for the AuraKare Sollutions static site.",
   "scripts": {
-    "build": "node build-site.js",
-    "test": "node --test api/send-guide.test.js"
+    "build": "node ../JAVA_SCRIPT/build-site.js dist",
+    "test": "NODE_PATH=node_modules node --test ../API/send-guide.test.js"
   },
   "dependencies": {
     "@fontsource-variable/dm-sans": "5.3.0",

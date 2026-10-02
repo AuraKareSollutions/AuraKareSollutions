@@ -14,7 +14,7 @@ function validateGuideEmail(email) {
 
 function buildGuideEmail(email) {
   const recipient = email.trim();
-  const pdfPath = path.resolve(__dirname, '..', PDF_FILENAME);
+  const pdfPath = path.resolve(__dirname, '..', 'Assets', 'PDF', PDF_FILENAME);
   const attachment = fs.existsSync(pdfPath)
     ? [{
         filename: PDF_FILENAME,
