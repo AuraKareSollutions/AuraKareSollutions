@@ -5655,3 +5655,16 @@ svg {
     min-height: 760px;
   }
 }
+
+/* Contact enquiry badges should remain calm; only the selected state is emphasized. */
+.contact-intent:hover {
+  border-color: #d9e5f0;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(23, 67, 112, 0.04);
+  transform: none;
+}
+
+.contact-intent:focus-within,
+.contact-intent:has(input:checked) {
+  transform: none;
+}
