@@ -4266,11 +4266,6 @@ svg {
   transform: translateY(-2px);
 }
 
-.contact-intent:hover {
-  background: #dfe2e5;
-  transform: translateY(-2px);
-}
-
 .contact-intent:has(input:checked) .contact-intent-title {
   color: #111111;
 }
