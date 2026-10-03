@@ -3,9 +3,39 @@ const primaryNavigation = document.querySelector('.primary-navigation');
 const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
 const localAssetBase = 'Assets/';
 
+const loadVideo = (video) => {
+  const source = video.querySelector('source[data-src]');
+
+  if (!source) {
+    return;
+  }
+
+  source.src = source.dataset.src;
+  source.removeAttribute('data-src');
+  video.load();
+};
+
+const lazyVideos = document.querySelectorAll('video[data-lazy-video]');
+
+if ('IntersectionObserver' in window) {
+  const videoObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        return;
+      }
+
+      loadVideo(entry.target);
+      observer.unobserve(entry.target);
+    });
+  }, { rootMargin: '240px 0px' });
+
+  lazyVideos.forEach((video) => videoObserver.observe(video));
+} else {
+  lazyVideos.forEach(loadVideo);
+}
+
 const localAssetSources = {
   '.brand-logo source': `${localAssetBase}Brand_Logo/Branding.mp4`,
-  '.footer-logo source': `${localAssetBase}Brand_Logo/Branding.mp4`,
   '.social-link[aria-label="Facebook"] img': `${localAssetBase}Icons/icons8-facebook.gif`,
   '.social-link[aria-label="LinkedIn"] img': `${localAssetBase}Icons/icons8-linkedin-48.gif`,
   '.services-hero-video source': `${localAssetBase}HeroSection/Service Bars.mp4`,
@@ -35,6 +65,35 @@ const serviceVideoByPage = {
   'ai-ready-processing.html': `${localAssetBase}Services_VidBOX/AI_Ready_VidBOX.mp4`
 };
 
+const mountVideoWhenVisible = (videoBox, source) => {
+  const mount = () => {
+    const video = document.createElement('video');
+
+    video.autoplay = true;
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.preload = 'metadata';
+    video.src = source;
+    videoBox.replaceChildren(video);
+    video.load();
+  };
+
+  if (!('IntersectionObserver' in window)) {
+    mount();
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, videoObserver) => {
+    if (entries.some((entry) => entry.isIntersecting)) {
+      mount();
+      videoObserver.disconnect();
+    }
+  }, { rootMargin: '240px 0px' });
+
+  observer.observe(videoBox);
+};
+
 const currentPage = window.location.pathname.split('/').pop().split('?')[0];
 
 const encodingFixes = [
@@ -54,16 +113,7 @@ while ((textNode = textWalker.nextNode())) {
 const serviceVideoSource = serviceVideoByPage[currentPage];
 if (serviceVideoSource) {
   document.querySelectorAll('.service-video-box').forEach((videoBox) => {
-    const video = document.createElement('video');
-
-    video.autoplay = true;
-    video.muted = true;
-    video.loop = true;
-    video.playsInline = true;
-    video.preload = 'metadata';
-    video.src = serviceVideoSource;
-    videoBox.replaceChildren(video);
-    video.load();
+    mountVideoWhenVisible(videoBox, serviceVideoSource);
   });
 }
 
@@ -90,16 +140,7 @@ if (currentPage === 'data-security.html') {
       return;
     }
 
-    const video = document.createElement('video');
-
-    video.autoplay = true;
-    video.muted = true;
-    video.loop = true;
-    video.playsInline = true;
-    video.preload = 'metadata';
-    video.src = videoSource;
-    videoBox.replaceChildren(video);
-    video.load();
+    mountVideoWhenVisible(videoBox, videoSource);
   });
 }
 
