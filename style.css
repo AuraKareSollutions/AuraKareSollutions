@@ -4130,7 +4130,6 @@ svg {
 }
 
 .contact-option:has(input:checked),
-.contact-option:hover,
 .contact-option:focus-within {
   border-color: #1955a4;
   background: #eef5fc;
