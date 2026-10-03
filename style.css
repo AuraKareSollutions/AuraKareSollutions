@@ -4129,8 +4129,7 @@ svg {
   box-shadow: 0 0 0 3px rgba(85, 200, 120, 0.14);
 }
 
-.contact-option:has(input:checked),
-.contact-option:focus-within {
+.contact-option:has(input:checked) {
   border-color: #1955a4;
   background: #eef5fc;
   color: #1955a4;
