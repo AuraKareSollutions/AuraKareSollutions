@@ -6654,8 +6654,8 @@ body:has(.service-feature) .service-item h2 {
 .contact-options .contact-option {
   border-color: #111111;
   border-radius: 0;
-  background: #111111;
-  color: #ffffff;
+  background: #ffffff;
+  color: #111111;
   cursor: default;
   pointer-events: none;
   user-select: none;
@@ -6663,14 +6663,14 @@ body:has(.service-feature) .service-item h2 {
 }
 .contact-options .contact-option:has(input:checked) {
   border-color: #111111;
-  background: #111111;
-  color: #ffffff;
+  background: #ffffff;
+  color: #111111;
 }
 .contact-options .contact-option-dot {
   width: 8px;
   height: 8px;
   border-radius: 0;
-  background: #ffffff;
+  background: #111111;
   box-shadow: none;
 }
 .contact-options .contact-option:has(input:checked) .contact-option-dot {
