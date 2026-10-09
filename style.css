@@ -752,6 +752,7 @@ body {
   object-fit: cover;
   transform: scale(1.16);
   transform-origin: center center;
+  filter: brightness(1.08) contrast(1.18) saturate(1.16);
 }
 
 .sectors-hero-overlay {
@@ -761,7 +762,7 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  background: linear-gradient(90deg, #000000 0%, #000000 34%, rgba(0, 0, 0, 0.98) 40%, rgba(0, 0, 0, 0.5) 48%, rgba(0, 0, 0, 0.18) 68%, rgba(0, 0, 0, 0.28) 100%);
+  background: linear-gradient(90deg, #000000 0%, #000000 34%, rgba(0, 0, 0, 0.98) 40%, rgba(0, 0, 0, 0.28) 48%, rgba(0, 0, 0, 0.04) 68%, rgba(0, 0, 0, 0.14) 100%);
   pointer-events: none;
 }
 
@@ -1147,6 +1148,7 @@ body {
     left: 0;
     width: 100%;
     transform: scale(1.2);
+    filter: brightness(1.04) contrast(1.12) saturate(1.1);
   }
   .sectors-hero-overlay {
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.2) 42%, rgba(0, 0, 0, 0.9) 100%);
