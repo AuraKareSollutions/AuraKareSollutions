@@ -510,7 +510,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 2px;
   background: transparent;
-  color: #17253a;
+  color: #000000;
   font-family: Arial, sans-serif;
   font-size: 17px;
   font-weight: 700;
@@ -4058,7 +4058,7 @@ svg {
 /* Contact page */
 .contact-page {
   background: #f4f6f8;
-  color: #17253a;
+  color: #000000;
 }
 
 .contact-intro {
@@ -4087,7 +4087,7 @@ svg {
 .contact-intro h1 {
   max-width: 760px;
   margin: 0;
-  color: #17253a;
+  color: #000000;
   font-family: 'Manrope', sans-serif;
   font-size: clamp(44px, 6vw, 82px);
   font-weight: 800;
@@ -4172,7 +4172,7 @@ svg {
 .contact-options legend {
   flex-basis: 100%;
   margin-bottom: 2px;
-  color: #17253a;
+  color: #000000;
   font-size: 13px;
   font-weight: 800;
 }
@@ -4363,7 +4363,7 @@ svg {
 .contact-next h2,
 .contact-details h2 {
   margin: 0;
-  color: #17253a;
+  color: #000000;
   font-family: 'Manrope', sans-serif;
   font-size: clamp(26px, 3vw, 42px);
   line-height: 1.08;
@@ -4405,7 +4405,7 @@ svg {
   gap: 9px;
   min-width: 0;
   max-width: 100%;
-  color: #17253a;
+  color: #000000;
   font-size: 13px;
   font-weight: 700;
 }
@@ -4452,7 +4452,7 @@ svg {
   border-radius: 2px;
   outline: 0;
   background: #ffffff;
-  color: #17253a;
+  color: #000000;
   font: inherit;
   font-weight: 500;
   line-height: 1.4;
@@ -4732,7 +4732,7 @@ svg {
   gap: 5px;
   padding-bottom: 18px;
   border-bottom: 1px solid #c8d2dc;
-  color: #17253a;
+  color: #000000;
   font-size: 15px;
   text-decoration: none;
 }
