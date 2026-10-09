@@ -1424,7 +1424,7 @@ body {
 .site-header .brand-name {
   background: none;
   font-size: clamp(14px, 1.4vw, 18px);
-  -webkit-text-fill-color: #a9c8e6;
+  -webkit-text-fill-color: #5b9fe3;
 }
 
 @keyframes logo-video-pop {
@@ -2692,7 +2692,7 @@ body:has(#bpo-workflows) .case-studies-button:focus-visible {
 }
 
 .site-header .brand-name {
-  color: #a9c8e6;
+  color: #5b9fe3;
   font-family: 'Newsreader', serif;
   text-decoration: none;
   transform: translateY(2px);
