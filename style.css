@@ -6608,7 +6608,7 @@ body:has(.service-feature) .service-item h2 {
 
 /* Footer certification badges: white treatment for stronger contrast on the dark footer. */
 .site-footer .certification-item {
-  border-color: #ffffff;
+  border: 2px solid #ffffff;
   background: transparent;
   color: #ffffff;
 }
