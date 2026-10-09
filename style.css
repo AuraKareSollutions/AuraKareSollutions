@@ -6205,3 +6205,35 @@ svg {
 }
 
 .hero-system > .hero-video::before { display: none; }
+
+
+/* Overflow guard: legacy page-specific hero rules used wider-than-viewport bands. */
+.hero-system {
+  width: 100% !important;
+  max-width: 100vw;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  box-sizing: border-box;
+}
+.hero-system,
+.hero-system *,
+.hero-system *::before,
+.hero-system *::after {
+  box-sizing: border-box;
+}
+.services-hero.hero-system {
+  height: auto !important;
+  min-height: min(780px, calc(100svh - 76px));
+}
+.hero-system > .hero-video,
+.hero-system > .services-hero-video,
+.hero-system > .data-security-background-video,
+.hero-system > .hero-background {
+  max-width: 60vw;
+}
+@media (max-width: 760px) {
+  .hero-system > .hero-video,
+  .hero-system > .services-hero-video,
+  .hero-system > .data-security-background-video,
+  .hero-system > .hero-background { max-width: 100vw; }
+}
