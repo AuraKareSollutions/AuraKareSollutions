@@ -6670,7 +6670,7 @@ body:has(.service-feature) .service-item h2 {
   width: 8px;
   height: 8px;
   border-radius: 0;
-  background: #111111;
+  background: #55c878;
   box-shadow: none;
 }
 .contact-options .contact-option:has(input:checked) .contact-option-dot {
