@@ -1647,7 +1647,7 @@ body {
   margin: 0;
   color: var(--white);
   font-family: 'Manrope', sans-serif;
-  font-size: clamp(20px, 1.6vw, 28px);
+  font-size: clamp(18px, 1.3vw, 24px);
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: 0;
@@ -3107,7 +3107,7 @@ body:has(#bpo-workflows) .case-studies-button:focus-visible {
   }
 
   .hero h1 {
-    font-size: clamp(18px, 4.8vw, 24px);
+    font-size: clamp(16px, 4.2vw, 21px);
   }
 
   .hero-actions {
