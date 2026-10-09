@@ -6601,3 +6601,15 @@ body:has(.service-feature) .service-item h2 {
   .security-closing-pipeline { grid-template-columns: 1fr; gap: 12px; }
   .security-closing-pipeline b { width: 42px; }
 }
+
+
+/* Footer certification badges: white treatment for stronger contrast on the dark footer. */
+.site-footer .certification-item {
+  border-color: #ffffff;
+  background: transparent;
+  color: #ffffff;
+}
+.site-footer .certification-item .certification-dot {
+  background: #55c878;
+  box-shadow: 0 0 8px rgba(85, 200, 120, .65);
+}
