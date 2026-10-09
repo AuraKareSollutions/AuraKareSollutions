@@ -6435,3 +6435,22 @@ body {
 @media (hover: none) {
   html, body { touch-action: pan-y; }
 }
+
+
+/* Keep one document scrollbar and never hide a whole service feature container. */
+body {
+  overflow-y: visible !important;
+}
+.motion-enabled .service-feature {
+  opacity: 1 !important;
+  transform: none !important;
+  contain: none;
+  transition: none !important;
+}
+.motion-enabled .service-feature h2,
+.motion-enabled .service-feature .service-item,
+.motion-enabled .service-feature .service-video-box,
+.motion-enabled .service-feature .service-more-copy,
+.motion-enabled .service-feature .service-cta-banner {
+  visibility: visible;
+}
