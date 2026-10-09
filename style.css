@@ -6454,3 +6454,20 @@ body {
 .motion-enabled .service-feature .service-cta-banner {
   visibility: visible;
 }
+
+
+/* Definitive scroll ownership: html owns the page scroll; body remains transparent. */
+body {
+  overflow: visible !important;
+  height: auto !important;
+}
+.services-page .service-feature .motion-reveal,
+.services-page .service-feature .service-item,
+.services-page .service-feature .service-video-box,
+.services-page .service-feature .service-more-copy,
+.services-page .service-feature .service-cta-banner,
+.services-page .service-feature h2 {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
