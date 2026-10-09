@@ -6652,13 +6652,27 @@ body:has(.service-feature) .service-item h2 {
 
 /* Contact capability badges are informational only, not form controls. */
 .contact-options .contact-option {
+  border-color: #111111;
+  border-radius: 0;
+  background: #111111;
+  color: #ffffff;
   cursor: default;
   pointer-events: none;
   user-select: none;
   -webkit-user-select: none;
 }
 .contact-options .contact-option:has(input:checked) {
-  border-color: #cbd5df;
+  border-color: #111111;
+  background: #111111;
+  color: #ffffff;
+}
+.contact-options .contact-option-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 0;
   background: #ffffff;
-  color: #526278;
+  box-shadow: none;
+}
+.contact-options .contact-option:has(input:checked) .contact-option-dot {
+  box-shadow: none;
 }
