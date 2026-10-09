@@ -6246,3 +6246,23 @@ svg {
 }
 .services-hero.hero-system h1 span { display: block; }
 .services-hero.hero-system h1 span:nth-child(2) { color: #a9c8e6; }
+
+/* Long service names get a smaller label and balanced display blocks. */
+.services-hero.service-legacy-hero h1,
+.services-hero.service-ai-hero h1 {
+  font-size: clamp(44px, 5.35vw, 88px);
+  line-height: .9;
+  letter-spacing: -.042em;
+}
+.services-hero .service-hero-kicker {
+  margin-bottom: .28em;
+  color: #a9c8e6 !important;
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(12px, 1vw, 16px);
+  font-weight: 700;
+  letter-spacing: .14em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.services-hero.service-legacy-hero h1 span:nth-child(3),
+.services-hero.service-ai-hero h1 span:nth-child(3) { color: #f7fbff; }
