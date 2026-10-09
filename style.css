@@ -6648,3 +6648,17 @@ body:has(.service-feature) .service-item h2 {
 .site-footer .header-bottomline a:focus-visible {
   color: #9fd4ff;
 }
+
+
+/* Contact capability badges are informational only, not form controls. */
+.contact-options .contact-option {
+  cursor: default;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.contact-options .contact-option:has(input:checked) {
+  border-color: #cbd5df;
+  background: #ffffff;
+  color: #526278;
+}
