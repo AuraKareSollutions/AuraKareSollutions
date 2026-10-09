@@ -241,7 +241,11 @@ const servicesEyebrow = document.querySelector('.services-hero .services-eyebrow
 const servicesTitle = document.querySelector('.services-hero h1');
 
 if (servicesEyebrow && servicesTitle) {
-  servicesEyebrow.innerHTML = '<span class="service-breadcrumb-prefix">Our Service</span><span class="service-breadcrumb-path"> / ' + servicesTitle.textContent + '</span>';
+  const serviceTitleText = Array.from(servicesTitle.querySelectorAll('span'))
+    .map((span) => span.textContent.trim())
+    .filter(Boolean)
+    .join(' ');
+  servicesEyebrow.innerHTML = '<span class="service-breadcrumb-prefix">Our Service</span><span class="service-breadcrumb-path"> / ' + serviceTitleText + '</span>';
 }
 
 const pageConfigs = {
