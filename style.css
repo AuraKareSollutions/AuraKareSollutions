@@ -6339,3 +6339,36 @@ svg {
 }
 .hero:not(.hero-system) h1 span { display: block; }
 .hero:not(.hero-system) h1 span:nth-child(2) { color: #a9c8e6; }
+
+
+/* Responsive service breadcrumbs: the generated path must shrink with the left hero panel. */
+.services-hero.hero-system .services-eyebrow {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  gap: 4px 7px;
+  overflow-wrap: anywhere;
+}
+.services-hero.hero-system .service-breadcrumb-prefix,
+.services-hero.hero-system .service-breadcrumb-path {
+  min-width: 0;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+.services-hero.hero-system .service-breadcrumb-path {
+  flex: 1 1 180px;
+}
+@media (max-width: 760px) {
+  .services-hero.hero-system .services-eyebrow {
+    align-items: flex-start;
+    gap: 5px;
+  }
+  .services-hero.hero-system .service-breadcrumb-path {
+    flex-basis: 100%;
+  }
+}
