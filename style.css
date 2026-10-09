@@ -6372,3 +6372,44 @@ svg {
     flex-basis: 100%;
   }
 }
+
+
+/* Shared entrance motion for a more dynamic, cohesive site experience. */
+.motion-enabled .motion-reveal {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition: opacity 720ms cubic-bezier(.22, 1, .36, 1), transform 720ms cubic-bezier(.22, 1, .36, 1);
+  transition-delay: var(--motion-delay, 0ms);
+  will-change: opacity, transform;
+}
+.motion-enabled .motion-reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+.motion-enabled .hero-content.motion-reveal,
+.motion-enabled .sectors-hero-content.motion-reveal,
+.motion-enabled .services-hero-content.motion-reveal,
+.motion-enabled .data-security-content.motion-reveal,
+.motion-enabled .about-hero-content.motion-reveal {
+  transition-duration: 900ms;
+}
+.motion-enabled .sector-card,
+.motion-enabled .security-control,
+.motion-enabled .service-feature {
+  transition: transform 500ms cubic-bezier(.22, 1, .36, 1), box-shadow 500ms ease, opacity 720ms cubic-bezier(.22, 1, .36, 1);
+}
+.motion-enabled .sector-card:hover,
+.motion-enabled .security-control:hover,
+.motion-enabled .service-feature:hover {
+  transform: translateY(-5px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .motion-enabled .motion-reveal,
+  .motion-enabled .sector-card,
+  .motion-enabled .security-control,
+  .motion-enabled .service-feature {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

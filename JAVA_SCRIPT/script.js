@@ -620,3 +620,53 @@ if ('IntersectionObserver' in window) {
     setVisible(banner, true);
   }
 })();
+
+
+/* Site-wide motion layer: subtle entrance reveals for content as it enters the viewport. */
+(() => {
+  const motionTargets = [
+    '.hero-content',
+    '.sectors-hero-content',
+    '.services-hero-content',
+    '.data-security-content',
+    '.about-hero-content',
+    '.download-guide-copy',
+    '.download-guide-card',
+    'main > section:not(.hero):not(.hero-system):not(.sectors-hero)',
+    '.service-feature',
+    '.sector-card',
+    '.security-control',
+    '.contact-intro-inner',
+    '.contact-form-panel',
+    '.content-panel',
+    '.site-footer .footer-inner'
+  ];
+  const targets = [...new Set(motionTargets.flatMap((selector) => [...document.querySelectorAll(selector)]))];
+
+  if (!targets.length) {
+    return;
+  }
+
+  document.documentElement.classList.add('motion-enabled');
+  targets.forEach((element, index) => {
+    element.classList.add('motion-reveal');
+    element.style.setProperty('--motion-delay', `${Math.min(index % 7, 6) * 70}ms`);
+  });
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+    targets.forEach((element) => element.classList.add('is-visible'));
+    return;
+  }
+
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        return;
+      }
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+  targets.forEach((element) => revealObserver.observe(element));
+})();
