@@ -1647,7 +1647,7 @@ body {
   margin: 0;
   color: var(--white);
   font-family: 'Manrope', sans-serif;
-  font-size: clamp(18px, 1.3vw, 24px);
+  font-size: clamp(14px, 1vw, 18px);
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: 0;
@@ -3107,7 +3107,7 @@ body:has(#bpo-workflows) .case-studies-button:focus-visible {
   }
 
   .hero h1 {
-    font-size: clamp(16px, 4.2vw, 21px);
+    font-size: clamp(12px, 3.4vw, 16px);
   }
 
   .hero-actions {
@@ -6608,7 +6608,7 @@ body:has(.service-feature) .service-item h2 {
 
 /* Footer certification badges: white treatment for stronger contrast on the dark footer. */
 .site-footer .certification-item {
-  border: 2px solid #ffffff;
+  border: 1.5px solid #ffffff;
   background: transparent;
   color: #ffffff;
 }
