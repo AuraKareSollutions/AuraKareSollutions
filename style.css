@@ -799,13 +799,29 @@ body {
 }
 
 .sectors-hero h1 {
-  max-width: 520px;
+  max-width: 560px;
   margin: 0;
   font-family: 'Newsreader', serif;
-  font-size: clamp(30px, 3.8vw, 48px);
+  font-size: clamp(42px, 5.2vw, 78px);
   font-weight: 500;
-  letter-spacing: -1.6px;
-  line-height: 0.98;
+  letter-spacing: -3px;
+  line-height: 0.86;
+}
+
+.sectors-hero h1 span {
+  display: block;
+}
+
+.sectors-hero h1 span:nth-child(2) {
+  color: #a9c8e6;
+}
+
+.sectors-hero-subtitle {
+  max-width: 390px;
+  margin: 32px 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(13px, 1.1vw, 16px);
+  line-height: 1.55;
 }
 
 .sectors-hero-scroll {
@@ -1142,6 +1158,14 @@ body {
     left: 0;
     width: 100%;
     padding: 0 16px 112px;
+  }
+  .sectors-hero h1 {
+    font-size: clamp(42px, 13vw, 68px);
+    letter-spacing: -2px;
+  }
+  .sectors-hero-subtitle {
+    max-width: 330px;
+    margin-top: 24px;
   }
   .sectors-hero-scroll {
     right: 16px;
