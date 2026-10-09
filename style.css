@@ -6326,3 +6326,16 @@ svg {
   letter-spacing: -.05em;
 }
 .hero:not(.hero-system) h1 span:nth-child(2) { color: #a9c8e6; }
+
+/* Final scale and homepage typography pass. */
+.services-hero.hero-system > .services-hero-video video { transform: scale(1.30) !important; }
+.hero:not(.hero-system) h1 {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(42px, 5.05vw, 82px);
+  font-weight: 800;
+  line-height: .9;
+  letter-spacing: -.065em;
+  text-transform: none;
+}
+.hero:not(.hero-system) h1 span { display: block; }
+.hero:not(.hero-system) h1 span:nth-child(2) { color: #a9c8e6; }
