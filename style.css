@@ -6613,3 +6613,38 @@ body:has(.service-feature) .service-item h2 {
   background: #55c878;
   box-shadow: 0 0 8px rgba(85, 200, 120, .65);
 }
+
+
+/* Footer text: remove remaining grey tones and use a unified white hierarchy. */
+.site-footer .footer-brand,
+.site-footer .footer-brand span,
+.site-footer .header-description,
+.site-footer .certifications-title,
+.site-footer .header-bottomline,
+.site-footer .footer-services,
+.site-footer .footer-sectors,
+.site-footer .footer-insights,
+.site-footer .footer-about,
+.site-footer .footer-services h2,
+.site-footer .footer-sectors h2,
+.site-footer .footer-insights h2,
+.site-footer .footer-about h2,
+.site-footer .footer-services a,
+.site-footer .footer-sectors a,
+.site-footer .footer-insights a,
+.site-footer .footer-about a,
+.site-footer .header-bottomline a {
+  color: #ffffff;
+}
+.site-footer .footer-services a:hover,
+.site-footer .footer-services a:focus-visible,
+.site-footer .footer-sectors a:hover,
+.site-footer .footer-sectors a:focus-visible,
+.site-footer .footer-insights a:hover,
+.site-footer .footer-insights a:focus-visible,
+.site-footer .footer-about a:hover,
+.site-footer .footer-about a:focus-visible,
+.site-footer .header-bottomline a:hover,
+.site-footer .header-bottomline a:focus-visible {
+  color: #9fd4ff;
+}
