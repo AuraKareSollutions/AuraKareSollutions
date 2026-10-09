@@ -241,7 +241,7 @@ const servicesEyebrow = document.querySelector('.services-hero .services-eyebrow
 const servicesTitle = document.querySelector('.services-hero h1');
 
 if (servicesEyebrow && servicesTitle) {
-  const serviceTitleText = Array.from(servicesTitle.querySelectorAll('span'))
+  const serviceTitleText = servicesTitle.dataset.breadcrumbTitle || Array.from(servicesTitle.querySelectorAll('span'))
     .map((span) => span.textContent.trim())
     .filter(Boolean)
     .join(' ');
