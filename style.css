@@ -752,7 +752,7 @@ body {
   object-fit: cover;
   transform: scale(1.16);
   transform-origin: center center;
-  filter: brightness(1.08) contrast(1.18) saturate(1.16);
+  filter: brightness(0.7) contrast(1.24) saturate(0.9);
 }
 
 .sectors-hero-overlay {
@@ -1148,7 +1148,7 @@ body {
     left: 0;
     width: 100%;
     transform: scale(1.2);
-    filter: brightness(1.04) contrast(1.12) saturate(1.1);
+    filter: brightness(0.72) contrast(1.18) saturate(0.88);
   }
   .sectors-hero-overlay {
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.2) 42%, rgba(0, 0, 0, 0.9) 100%);
