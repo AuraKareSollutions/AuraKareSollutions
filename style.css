@@ -6005,3 +6005,203 @@ svg {
     order: 99;
   }
 }
+
+
+/* Shared sectors-style hero system: black left panel, 60% media field, and a quiet scroll cue. */
+.hero-system {
+  position: relative;
+  isolation: isolate;
+  min-height: min(780px, calc(100svh - 76px));
+  overflow: hidden;
+  background: #000;
+  color: #fff;
+}
+
+.hero-system > .hero-video,
+.hero-system > .services-hero-video,
+.hero-system > .data-security-background-video,
+.hero-system > .hero-background {
+  position: absolute !important;
+  z-index: 0 !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 40% !important;
+  width: 60% !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  overflow: hidden;
+  background: #061326;
+}
+
+.hero-system > .hero-video video,
+.hero-system > .services-hero-video video,
+.hero-system > .data-security-background-video {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  transform: scale(1.08) !important;
+  filter: brightness(.78) contrast(1.2) saturate(.92) !important;
+}
+
+.hero-system > .hero-video::after,
+.hero-system > .services-hero-video::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, rgba(0, 0, 0, .06), rgba(3, 16, 35, .16) 52%, rgba(0, 0, 0, .28)), linear-gradient(180deg, rgba(0, 0, 0, .1), rgba(0, 0, 0, .35));
+  content: '';
+}
+
+.hero-system::before {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(90deg, #000 0%, #000 37%, rgba(0, 0, 0, .98) 40%, rgba(0, 0, 0, .72) 44%, rgba(0, 0, 0, .18) 58%, transparent 72%), linear-gradient(180deg, rgba(0, 0, 0, .18), transparent 38%, rgba(0, 0, 0, .26));
+  content: '';
+  pointer-events: none;
+}
+
+.hero-system > .hero-overlay,
+.hero-system > .services-hero-overlay {
+  z-index: 2 !important;
+  background: linear-gradient(90deg, transparent 0 40%, rgba(11, 33, 61, .18) 46%, transparent 63%) !important;
+  pointer-events: none;
+}
+
+.hero-system > .hero-content,
+.hero-system > .services-hero-content,
+.hero-system > .data-security-content,
+.hero-system > .about-hero-content {
+  position: relative;
+  z-index: 3;
+  display: block;
+  align-self: center;
+  width: 40%;
+  max-width: none;
+  margin: 0;
+  padding: clamp(56px, 9vw, 132px) clamp(24px, 5.2vw, 92px);
+  transform: none;
+}
+
+.hero-system h1 {
+  max-width: 100%;
+  margin: 0;
+  color: #f7fbff;
+  font-family: 'Newsreader', serif;
+  font-size: clamp(48px, 5.7vw, 104px);
+  font-weight: 500;
+  line-height: .88;
+  letter-spacing: -.045em;
+  overflow-wrap: anywhere;
+}
+
+.hero-system .hero-eyebrow,
+.hero-system .services-eyebrow,
+.hero-system .data-security-eyebrow,
+.hero-system .about-hero-label,
+.hero-system .section-kicker {
+  margin: 0 0 clamp(22px, 3vw, 48px);
+  color: #a5bbd3;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.hero-system .hero-eyebrow { color: #a5bbd3; }
+.hero-system .services-hero .services-eyebrow { margin-bottom: clamp(22px, 3vw, 48px); }
+.hero-system .services-hero-content h1,
+.hero-system .data-security-content h1,
+.hero-system .about-hero-content h1 { width: auto; max-width: 100%; white-space: normal; }
+.hero-system .data-security-description,
+.hero-system .about-hero-subtitle { max-width: 34rem; margin-top: 28px; color: #afc1d5; font-size: 14px; line-height: 1.65; }
+.hero-system .hero-actions { margin-top: 38px; }
+.hero-system .hero-badges,
+.hero-system .about-hero-features,
+.hero-system .data-security-status { display: none; }
+.hero-system .about-hero-button { margin-top: 34px; }
+
+.hero-system-scroll {
+  position: absolute;
+  z-index: 4;
+  right: clamp(24px, 5vw, 88px);
+  bottom: clamp(24px, 4vw, 56px);
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  color: #c7d7e8;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.hero-system-scroll-line {
+  display: inline-block;
+  width: clamp(42px, 5vw, 86px);
+  height: 1px;
+  background: #8fb9e9;
+  transform-origin: right center;
+  animation: heroScrollLine 1.8s ease-in-out infinite;
+}
+
+@keyframes heroScrollLine {
+  0%, 100% { opacity: .42; transform: scaleX(.45); }
+  50% { opacity: 1; transform: scaleX(1); }
+}
+
+/* The guide has no video, so its right panel uses a restrained data-field gradient. */
+.download-guide-hero.hero-system {
+  display: block;
+  min-height: min(780px, calc(100svh - 76px));
+  background: #000;
+}
+.download-guide-hero.hero-system::after {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 40%;
+  background: radial-gradient(circle at 62% 46%, rgba(32, 115, 218, .55), transparent 22%), repeating-linear-gradient(0deg, transparent 0 46px, rgba(91, 167, 255, .12) 47px, transparent 48px), linear-gradient(135deg, #071a37, #020914 68%);
+  content: '';
+}
+.download-guide-hero.hero-system .download-guide-hero-inner { position: relative; z-index: 3; display: block; width: 100%; max-width: none; min-height: inherit; padding: clamp(56px, 9vw, 132px) clamp(24px, 5.2vw, 92px); }
+.download-guide-hero.hero-system .download-guide-copy { width: 40%; max-width: none; padding: 0; }
+.download-guide-hero.hero-system .download-guide-copy h1 { max-width: 100%; color: #f7fbff; font-family: 'Newsreader', serif; font-size: clamp(48px, 5.7vw, 104px); font-weight: 500; line-height: .88; letter-spacing: -.045em; }
+.download-guide-hero.hero-system .download-guide-intro,
+.download-guide-hero.hero-system .download-guide-points { color: #afc1d5; }
+.download-guide-hero.hero-system .download-guide-card { position: absolute; top: 50%; right: clamp(24px, 8vw, 150px); width: min(360px, 25vw); transform: translateY(-50%); }
+
+@media (max-width: 760px) {
+  .hero-system { min-height: 720px; }
+  .hero-system > .hero-video,
+  .hero-system > .services-hero-video,
+  .hero-system > .data-security-background-video,
+  .hero-system > .hero-background { top: 30% !important; left: 0 !important; width: 100% !important; height: 70% !important; }
+  .hero-system::before { background: linear-gradient(180deg, #000 0%, #000 35%, rgba(0, 0, 0, .9) 49%, rgba(0, 0, 0, .32) 76%, rgba(0, 0, 0, .55) 100%); }
+  .hero-system > .hero-content,
+  .hero-system > .services-hero-content,
+  .hero-system > .data-security-content,
+  .hero-system > .about-hero-content { width: 100%; padding: 72px 20px 300px; }
+  .hero-system h1,
+  .download-guide-hero.hero-system .download-guide-copy h1 { font-size: clamp(46px, 14vw, 78px); }
+  .hero-system-scroll { right: 20px; bottom: 24px; }
+  .download-guide-hero.hero-system .download-guide-hero-inner { padding: 72px 20px 300px; }
+  .download-guide-hero.hero-system .download-guide-copy { width: 100%; }
+  .download-guide-hero.hero-system .download-guide-card { top: auto; right: 20px; bottom: 72px; width: calc(100% - 40px); transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-system-scroll-line { animation: none; }
+}
+
+.hero-system > .hero-video::before { display: none; }
