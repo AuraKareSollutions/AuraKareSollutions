@@ -6471,3 +6471,22 @@ body {
   visibility: visible !important;
   transform: none !important;
 }
+
+
+/* Remove legacy service clipping/offsets; service content must use its full natural height. */
+.services-page,
+.service-single,
+.service-feature,
+.service-item {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+body:has(.service-feature) .service-item h2 {
+  position: static !important;
+  top: auto !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
