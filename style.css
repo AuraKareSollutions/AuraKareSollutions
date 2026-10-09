@@ -6413,3 +6413,25 @@ svg {
     transition: none;
   }
 }
+
+
+/* Scroll safety: reveal transforms must never create a page-level scroll lock. */
+html {
+  min-height: 100%;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  overscroll-behavior-y: auto;
+}
+body {
+  min-height: 100%;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  overscroll-behavior-y: auto;
+  position: static;
+}
+.motion-enabled .motion-reveal {
+  contain: paint;
+}
+@media (hover: none) {
+  html, body { touch-action: pan-y; }
+}
