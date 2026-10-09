@@ -5522,7 +5522,7 @@ svg {
 }
 
 .contact-form-panel h2 {
-  color: #142e50;
+  color: #000000;
   font-size: clamp(26px, 2.6vw, 38px);
   letter-spacing: -0.03em;
 }
