@@ -6335,7 +6335,7 @@ svg {
 .services-hero.hero-system > .services-hero-video video { transform: scale(1.30) !important; }
 .hero:not(.hero-system) h1 {
   font-family: 'Manrope', sans-serif;
-  font-size: clamp(24px, 2.2vw, 32px);
+  font-size: clamp(36px, 3.4vw, 48px);
   font-weight: 800;
   line-height: .9;
   letter-spacing: -.065em;
@@ -6683,6 +6683,6 @@ body:has(.service-feature) .service-item h2 {
 
 @media (max-width: 560px) {
   .hero:not(.hero-system) h1 {
-    font-size: clamp(20px, 5.6vw, 26px);
+    font-size: clamp(26px, 7vw, 34px);
   }
 }
